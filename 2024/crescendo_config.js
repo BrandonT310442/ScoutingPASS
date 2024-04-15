@@ -73,19 +73,54 @@ var config_data = `
       "code": "aas",
       "type": "counter"
     },
+    { "name": "Amp Missed",
+    "code": "aam",
+    "type": "counter"
+  },
     { "name": "Speaker Scores",
       "code": "ass",
       "type": "counter"
-    }
+    },
+    { "name": "Speaker Misses",
+    "code": "asm",
+    "type": "counter"
+  }
   ],
   "teleop": [
     { "name": "Amp Scores",
       "code": "tas",
       "type": "counter"
     },
+    { "name": "Amp Missed",
+    "code": "tam",
+    "type": "counter"
+  },
     { "name": "Speaker Scores",
       "code": "tss",
       "type": "counter"
+    },
+    { "name": "Speaker Missed",
+    "code": "tsm",
+    "type": "counter"
+  },
+
+  { "name": "Trap Scored",
+  "code": "trs",
+  "type": "counter"
+},
+
+{ "name": "Trap Missed",
+"code": "trm",
+"type": "counter"
+},
+
+{ "name": "Feed Outside Wing",
+      "code": "fdo",
+      "type": "bool"
+    },
+    { "name": "Feed Inside Wing",
+      "code": "fdi",
+      "type": "bool"
     },
     { "name": "Times Amplified",
       "code": "tta",
@@ -179,6 +214,17 @@ var config_data = `
       "code": "all",
       "type": "bool"
     },
+    { "name": "Pineapple",
+    "code": "pin",
+    "type": "bool"
+  },
+
+  { "name": "Penalties",
+  "code": "pen",
+  "type": "text", 
+    "size": 15,
+    "maxSize": 55
+},
     { "name": "Comments",
       "code": "co",
       "type": "text",
