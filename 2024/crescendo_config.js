@@ -65,10 +65,30 @@ var config_data = `
     }
   ],
   "auton": [
+
+    { "name": "Pickup Image",
+    "code": "pi",
+    "type": "clickable_image",
+    "filename": "2024/pickup.png",
+    "clickRestriction": "zero",
+    "allowableResponses": "1 12 13 24 25 36 37 48 49 60 61 72",
+    "shape": "circle 5 black red true"
+  }, 
+
+    { "name": "Pickup (ie. 1, 2, 3)",
+    "code": "Pickup",
+    "type": "text",
+    "size": 15,
+    "maxSize": 55
+  }, 
+
     { "name": "Leave Starting Zone",
       "code": "al",
       "type": "bool"
     },
+
+
+  
     { "name": "Amp Scores",
       "code": "aas",
       "type": "counter"
