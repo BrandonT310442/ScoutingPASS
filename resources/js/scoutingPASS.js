@@ -668,6 +668,8 @@ function addElement(table, idx, data) {
 function configure() {
   try {
     var mydata = JSON.parse(config_data);
+
+
   } catch (err) {
     console.log(`Error parsing configuration file`)
     console.log(err.message)
@@ -808,7 +810,6 @@ function getData(dataFormat) {
   var UniqueFieldNames = [];
   var fd = new FormData();
   var str = [];
-
   switch(checkboxAs) {
     case 'TF':
       checkedChar = 'T';
@@ -884,10 +885,28 @@ function qr_regenerate() {
   }
 
   // Get data
-  data = getData(dataFormat)
+  data = ""+getData(dataFormat)
+console.log("qr code data "+data);
+
+// Split the string by spaces
+let dataList = data.split("\t");
+console.log(dataList)
+// Define positions of elements to remove (0-based index)
+let positionsToRemove = [7, 8, 11, 13, 15, 17, 18, 19, 20, 21, 34, 35]; // For example, to remove elements at positions 1, 2, 5, 6, 7, and 8
+
+// Separate elements to keep and elements to remove
+let elementsToKeep = dataList.filter((element, index) => !positionsToRemove.includes(index));
+let elementsToRemove = dataList.filter((element, index) => positionsToRemove.includes(index));
+console.log(elementsToKeep)
+console.log(elementsToRemove)
+
+// Construct the new string with removed elements at the end
+let filteredDataString = elementsToKeep.join("\t") + "\t" + elementsToRemove.join("\t");;
+
+console.log(filteredDataString);
 
   // Regenerate QR Code
-  qr.makeCode(data)
+  qr.makeCode(filteredDataString)
 
   updateQRHeader()
   return true
